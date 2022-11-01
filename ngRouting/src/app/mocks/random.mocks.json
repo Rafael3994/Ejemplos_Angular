@@ -1,0 +1,64 @@
+{
+	"results": [{
+		"gender": "female",
+		"name": {
+			"title": "Miss",
+			"first": "Nicolina",
+			"last": "Matthijs"
+		},
+		"location": {
+			"street": {
+				"number": 1621,
+				"name": "De Ooievaar"
+			},
+			"city": "Epe",
+			"state": "Drenthe",
+			"country": "Netherlands",
+			"postcode": "6119 AO",
+			"coordinates": {
+				"latitude": "36.8939",
+				"longitude": "167.1349"
+			},
+			"timezone": {
+				"offset": "+3:30",
+				"description": "Tehran"
+			}
+		},
+		"email": "nicolina.matthijs@example.com",
+		"login": {
+			"uuid": "b7292530-a3aa-4684-9f87-ee62621a125f",
+			"username": "heavyswan937",
+			"password": "letter",
+			"salt": "oNPzIrf0",
+			"md5": "f6e802c09d002549be857001e738523b",
+			"sha1": "b2d0a5731fab6438c5de7c444a11464b0c607963",
+			"sha256": "733bba90caa9c7eb70c0d438a0e05533853c444c6024637a7a1ba9c308e9f7d2"
+		},
+		"dob": {
+			"date": "1968-02-26T22:00:54.654Z",
+			"age": 54
+		},
+		"registered": {
+			"date": "2004-12-19T18:23:58.112Z",
+			"age": 17
+		},
+		"phone": "(010) 6113920",
+		"cell": "(06) 64443982",
+		"id": {
+			"name": "BSN",
+			"value": "92855078"
+		},
+		"picture": {
+			"large": "https://randomuser.me/api/portraits/women/40.jpg",
+			"medium": "https://randomuser.me/api/portraits/med/women/40.jpg",
+			"thumbnail": "https://randomuser.me/api/portraits/thumb/women/40.jpg"
+		},
+		"nat": "NL"
+	}],
+	"info": {
+		"seed": "c3babccaa55b0749",
+		"results": 1,
+		"page": 1,
+		"version": "1.4"
+	}
+}

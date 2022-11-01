@@ -1,0 +1,20 @@
+<h1>Selecciona a tu amigo</h1>
+
+<ng-container *ngIf="contactoSeleccionado; else noSelect">
+  <h4>Tu amigo invisble es: {{contactoSeleccionado.name.first}}</h4>
+</ng-container>
+
+<ng-template #noSelect>
+  <div>
+    <p>Selecciona a tu amigo</p>
+  </div>
+</ng-template>
+
+<button mat-raised-button color="primary" (click)="navegarAContacts()">Ver tus contactos</button>
+
+<div>
+  <p>Filtros:
+    <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'female'}">Amigas |</a>
+    <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'male'}"> | Amigos</a>
+  </p>
+</div>

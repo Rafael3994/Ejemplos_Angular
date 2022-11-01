@@ -1,0 +1,27 @@
+<h1>Tus contactos:</h1>
+
+<div *ngIf="loading">
+  <mat-spinner></mat-spinner>
+  <h6>Cargando...</h6>
+</div>
+<div *ngIf="!loading">
+
+  <!-- Listar los contactos y poder navegar al pinchar en uno de ellos al detalle -->
+  <div *ngFor="let contacto of listaRandomContacts let i=index">
+    <div>
+      <h6 routerLink="{{contacto.id.name}}" [state]="{data: contacto, filtro: filtroSexo}" class="contacto">
+        {{contacto.name.first}} {{contacto.name.last}}</h6>
+      <button mat-raised-button color="primary" (click)="volverAHOME(contacto)">Enviar contacto</button>
+    </div>
+  </div>
+
+  <ng-container *ngIf="filtroSexo == 'female' || filtroSexo == 'male'; else filtroTodos">
+    <p>Mostrar amigos "{{filtroSexo}}"</p>
+  </ng-container>
+
+  <ng-template #filtroTodos>
+    <p>Sin filtros</p>
+  </ng-template>
+</div>
+
+<a routerLink="/dashboard" [queryParams]="{sexo: filtroSexo}">Volver</a>
