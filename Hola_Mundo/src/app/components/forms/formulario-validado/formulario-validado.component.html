@@ -1,0 +1,48 @@
+<form [formGroup]="miFormularioValidado" (submit)="enviarFormulario()">
+  <h3>Datos en vivo</h3>
+  <p>{{miFormularioValidado.value | json}}</p>
+
+  <!-- Campos del formulario + Mensaje de Error por validación -->
+  <!-- Nombre -->
+  <input placeholder="Nombre" formControlName="nombre" />
+  <div *ngIf="nombre?.errors?.['required'] && nombre?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo es obligatorio</p>
+  </div>
+  <!-- Apellidos -->
+  <input placeholder="Apellidos" formControlName="apellidos" />
+  <!-- Edad -->
+  <input type="number" placeholder="Edad" formControlName="edad" />
+  <div *ngIf="edad?.errors?.['required'] && edad?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo es obligatorio</p>
+  </div>
+  <div *ngIf="edad?.errors?.['min'] && edad?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo no puede ser menor a 18: {{edad?.errors?.['min'].actual}}</p>
+  </div>
+  <div *ngIf="edad?.errors?.['max'] && edad?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo no puede ser mayor a 99: {{edad?.errors?.['max'].actual}}</p>
+  </div>
+  <!-- Email -->
+  <input placeholder="Email" formControlName="email" />
+  <div *ngIf="email?.errors?.['required'] && email?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo es obligatorio</p>
+  </div>
+  <div *ngIf="email?.errors?.['email'] && email?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El formato del email no es valido</p>
+  </div>
+  <!-- Contraseña -->
+  <input type="password" placeholder="Password" formControlName="password" />
+  <div *ngIf="password?.errors?.['required'] && password?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El campo es obligatorio</p>
+  </div>
+  <div *ngIf="password?.errors?.['pattern'] && password?.touched">
+    <p [ngStyle]="{color: 'tomato'}">El fomato no es valido</p>
+  </div>
+  <!-- Acepta -->
+  <input type="checkbox" formControlName="acepta" /> Acepta
+  <div *ngIf="acepta?.errors?.['requiredTrue'] && acepta?.touched">
+    <p [ngStyle]="{color: 'tomato'}">Dabes aceptar los terminos</p>
+  </div>
+
+  <!-- Boton de submit, que se activa cuando el form es valido -->
+  <button type="submit" [disabled]="miFormularioValidado.invalid">Enviar</button>
+</form>

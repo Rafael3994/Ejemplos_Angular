@@ -1,0 +1,59 @@
+<!-- Bloque de directivas de atributo -->
+<p [ngStyle]="{color: 'tomato', fontWeight: 'bolder'}">Lista de Elementos: </p>
+<p ngClass="underlined">Aquí vamos a iterar sobre una lista y mostrar varios elementos</p>
+<p [ngClass]="['underlined', 'small']">Texto con estilo</p>
+<p [ngClass]="{underlined: false, small: true}">Texto con estilo 2</p>
+
+<!-- Bloque de directivas estructurales -->
+<!-- IF -->
+<p *ngIf="cargando">
+  Cargando...
+</p>
+
+<!-- ELSE IF -->
+<ng-container *ngIf="!cargando; else templateEspera">
+  <p>Todo listo</p>
+</ng-container>
+
+<ng-template #templateEspera>
+  <p>Espere a a que termine el proceso</p>
+</ng-template>
+
+<button (click)="cambiarCargando()">{{ cargando ? 'Terminal Carga' : 'Iniciar Carga'}}</button>
+
+<!-- Bloque para ngFor -->
+<!-- Iteramos en la lista de productos -->
+<div *ngFor="let producto of listaElementos; let i = index; let even = even">
+  <!-- Ámbito de FOR donde tenemos acceso a "producto" -->
+  <div [ngStyle]="even?{backgroundColor: 'blue', color: 'white'}:{backgroundColor: 'green'}" ngClass="">
+    <p>ID: {{i + 1}}</p>
+    <p>Nombre: {{producto.nombre}} - Precio: {{producto.precio}} €</p>
+    <p>Desc: {{producto.descripcion}}</p>
+  </div>
+</div>
+
+<!-- Bloque para entender ngSwitch -->
+<div [ngSwitch]="opcion">
+    <p [id]="1" *ngSwitchCase="1">Opción 1</p>
+    <p [id]="2" *ngSwitchCase="2">Opción 2</p>
+    <p [id]="3" *ngSwitchCase="3">Opción 3</p>
+    <p *ngSwitchDefault class="cerrar" >Ninguna de las opciones en válida</p>
+
+    <div>
+        <input type="radio" name="opcion" (click)="escogerOpcion(1)"> Opcion 1
+        <input type="radio" name="opcion" (click)="escogerOpcion(2)"> Opcion 2
+        <input type="radio" name="opcion" (click)="escogerOpcion(3)"> Opcion 3
+        <input type="radio" [checked]="true" name="opcion" (click)="escogerOpcion(0)"> Ocultar
+    </div>
+</div>
+
+<!-- Podemos concatenar directivas -->
+<div *ngFor="let producto of listaElementos; let i = index; let even = even">
+    <!-- Ámbito de FOR donde tenemos acceso a "producto" -->
+    <!-- Solo renderiza los productos mayores a 10 -->
+    <div *ngIf="producto.precio>10" [ngStyle]="even?{backgroundColor: 'blue', color: 'white'}:{backgroundColor: 'green'}" ngClass="">
+      <p>ID: {{i + 1}}</p>
+      <p>Nombre: {{producto.nombre}} - Precio: {{producto.precio}} €</p>
+      <p>Desc: {{producto.descripcion}}</p>
+    </div>
+  </div>

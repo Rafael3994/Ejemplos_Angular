@@ -1,0 +1,39 @@
+<h1>Ejemplos PIPES nativos de Angular</h1>
+
+<!-- Fechas -->
+<h2>Pipes para Fechas:</h2>
+<p>Mi cumpleaños es: {{dob}}</p>
+<p>Mi cumpleaños con PIPE DATE Básico es: {{dob | date}}</p>
+<p>Mi cumpleaños con PIPE DATE "dd/MM/yyyy" es: {{dob | date: "dd/MM/yyyy"}}</p>
+
+<p>Mi cumpleaños con PIPE DATE Short/Full es: {{dob | date: dateFormat}}</p>
+<button (click)="cambiarFomato()">Cambiar formato a {{cambioFormat ? 'Full': 'Short'}}</button>
+
+<p>Bienvenido, {{ nombre | uppercase}}</p>
+<p>Nombre de usuario, @{{ nombre | lowercase}}</p>
+
+<!-- Pipe Personalizado (Multiplica) -->
+<p>Resultado: {{2 | multiplica: 10}} puntos</p>
+
+<!-- Pipe Personalizado (CalcularPuntuación) -->
+<p>{{ jugador1 | calcularPuntuacion}} </p>
+<p>{{ jugador2 | calcularPuntuacion}} </p>
+
+<!-- PIPE Decimales -->
+<p>PI (5 decimales): {{ numeroPI | number: '.5-5' }}</p>
+<p>PI (2 enteros y 8 decimales): {{ numeroPI | number: '2.8-8' }}</p>
+<p>PI (3 decimales): {{ numeroPI | number: '.3-3' }}</p>
+
+<!-- Moneda (Currency) -->
+<p>Precio del Carrito (€): {{precioCarrito | currency: 'EUR'}}</p>
+<p>Precio del Carrito ($): {{precioCarrito | currency: 'USD':true}}</p>
+<p>Precio del Carrito (€): {{precioCarrito | currency: 'EUR':true:'3-3'}}</p>
+
+<!-- JSON -->
+<p>{{ persona | json}}</p>
+
+<!-- Porcentaje -->
+<p>Porcentaje de votos obtenidos: {{cantidad | percent: '2.2-2'}}</p>
+
+<!-- Slice -->
+<p>Texto demasiado largo: {{textoLargo | slice:0:10}}...</p>
